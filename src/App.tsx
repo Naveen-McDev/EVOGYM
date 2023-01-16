@@ -8,12 +8,15 @@ import OurClasses from "./scenes/ourClasses";
 import Footer from "./footer";
 
 function App() {
+  // to change the color in the navlinks in navbar with the respective section's view.
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
     SelectedPage.Home
   );
 
+  // check if the page is at the top to toggle the navbar transparency.
   const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true);
 
+  // handling the side effects
   useEffect(() => {
     const handleScroll = () => {
       if (window.screenY === 0) {
@@ -32,15 +35,25 @@ function App() {
 
   return (
     <div className="app bg-gray-20">
+      {/* Navbar */}
       <Navbar
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
       />
+      {/* Hero section */}
       <Home setSelectedPage={setSelectedPage} />
+
+      {/* benefits section */}
       <Benefits setSelectedPage={setSelectedPage} />
+
+      {/* Our class section */}
       <OurClasses setSelectedPage={setSelectedPage} />
+
+      {/* contact us section */}
       <ContactUs setSelectedPage={setSelectedPage} />
+
+      {/* footer section */}
       <Footer />
     </div>
   );
