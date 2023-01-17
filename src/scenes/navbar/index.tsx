@@ -6,6 +6,7 @@ import { SelectedPage } from "@/shared/type";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import ActionButton from "@/shared/ActionButton";
 
+// defining types for the props
 type Props = {
   isTopOfPage: boolean;
   selectedPage: SelectedPage;
@@ -13,10 +14,18 @@ type Props = {
 };
 
 const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
+  // global css
   const flexBetween = "flex justify-between items-center";
-  const [isMenuToggled, setIsMenuToggled] = useState<Boolean>(false);
+
+  // menu bar toggle for small screens
+  const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
+
+  // media Query
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
+
+  // changing the background of the navbar when scrolling down
   const navbarBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow";
+
   return (
     <nav>
       <div

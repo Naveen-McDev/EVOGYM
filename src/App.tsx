@@ -1,10 +1,6 @@
-import Navbar from "@/scenes/navbar";
 import { useEffect, useState } from "react";
-import Home from "@/scenes/home";
-import Benefits from "@/scenes/benefits";
-import ContactUs from "@/scenes/contactUs";
 import { SelectedPage } from "./shared/type";
-import OurClasses from "./scenes/ourClasses";
+import { Benefits, ContactUs, Home, Navbar, OurClasses } from "@/scenes";
 import Footer from "./footer";
 
 function App() {
@@ -19,11 +15,11 @@ function App() {
   // handling the side effects
   useEffect(() => {
     const handleScroll = () => {
-      if (window.screenY === 0) {
+      if (window.scrollY === 0) {
         setIsTopOfPage(true);
         setSelectedPage(SelectedPage.Home);
       }
-      if (window.screenY !== 0) {
+      if (window.scrollY !== 0) {
         setIsTopOfPage(false);
       }
     };

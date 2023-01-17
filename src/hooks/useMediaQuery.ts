@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+// hook
 const useMediaQuery = (query: string) => {
   const [matches, setMatches] = useState(false);
 
